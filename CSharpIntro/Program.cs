@@ -78,11 +78,11 @@ namespace CSharpIntro
 
             // figure out how to format your document in VS Code
 
-            //done
+            //done alt+shift+f
 
             // extra: make a new static method to do something and call it
 
-            static double divide(int op1, int op2)
+            static int divide(int op1, int op2)
             {
                 return op1 / op2;
 
@@ -90,19 +90,8 @@ namespace CSharpIntro
             Console.WriteLine(divide(64, 8));
             // extra: learn what "var" means in C# and try it out.
 
-            // Example #1: var is optional when
-            // the select clause specifies a string
-            string[] words = { "apple", "strawberry", "grape", "peach", "banana" };
-            var wordQuery = from word in words
-                            where word[0] == 'g'
-                            select word;
-
-            // Because each element in the sequence is a string, 
-            // not an anonymous type, var is optional here also.
-            foreach (string s in wordQuery)
-            {
-                Console.WriteLine(s);
-            }
+            var rdwrd = "number";
+            System.Console.WriteLine(rdwrd.ToUpper());
 
         }
     }
