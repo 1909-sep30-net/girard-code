@@ -38,6 +38,14 @@ namespace Collections
         {
             var set = new HashSet<string> {"a", "b", "c"};
             Console.WriteLine(set.Count);
+
+            var dict = new Dictionary<int, int> {
+                [1] = 1,
+                [3] = 9,
+                [2] = 4,
+                [10] = 100
+            };
+            var hundred = dict[10];
         }
     }
 }
