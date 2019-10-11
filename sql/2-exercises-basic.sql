@@ -16,7 +16,7 @@ WHERE Country = 'Brazil'
 
 SELECT *
 FROM Employee
-WHERE Title LIKE 'sales%'
+WHERE Title LIKE '%sales%agent'
 
 -- 4. show a list of all countries in billing addresses on invoices.
 
@@ -26,7 +26,13 @@ FROM Invoice
 -- 5. how many invoices were there in 2009, and what was the sales total for that year?
 --    (extra challenge: find the invoice count sales total for every year, using one query)
 
-SELECT year(InvoiceDate), Count(InvoiceId) AS [Number of Invoices], SUM(Total) AS [SalesTotal]
+SELECT year(InvoiceDate), Count(*) AS [Number of Invoices], SUM(Total) AS [SalesTotal]
+FROM Invoice
+WHERE year(InvoiceDate) = 2009
+GROUP BY year(InvoiceDate)
+
+
+SELECT year(InvoiceDate) AS Year, Count(*) AS [Number of Invoices], SUM(Total) AS SalesTotal
 FROM Invoice
 GROUP BY year(InvoiceDate)
 
@@ -34,12 +40,13 @@ GROUP BY year(InvoiceDate)
 
 -- 6. how many line items were there for invoice #37?
 
-SELECT Count(InvoiceLineId) AS [NumberofLineItems]
+SELECT InvoiceId, Count(*) AS [NumberofLineItems]
 FROM InvoiceLine
 WHERE InvoiceId = 37
+GROUP BY InvoiceId
 
 -- 7. how many invoices per country?
-SELECT BillingCountry, Count(InvoiceId) AS NumberOfInvoices 
+SELECT BillingCountry, Count(*) AS NumberOfInvoices 
 FROM Invoice
 GROUP BY BillingCountry
 Order BY NumberOfInvoices DESC
@@ -48,4 +55,6 @@ Order BY NumberOfInvoices DESC
 SELECT BillingCountry, SUM(Total) AS [SalesTotal]
 FROM Invoice
 GROUP BY BillingCountry
-ORDER BY SalesTotal DESC
+ORDER BY SalesTotal DESC, BillingCountry
+
+

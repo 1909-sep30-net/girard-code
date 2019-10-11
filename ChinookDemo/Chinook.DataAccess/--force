@@ -1,0 +1,5 @@
+MSBUILD : error MSB1001: Unknown switch.
+Switch: --output-dir
+
+For switch syntax, type "MSBuild -help"
+Unable to retrieve project metadata. Ensure it's an MSBuild-based .NET Core project. If you're using custom BaseIntermediateOutputPath or MSBuildProjectExtensionsPath values, Use the --msbuildprojectextensionspath option.
